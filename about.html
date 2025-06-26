@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pro-Web | About</title>
+
+  <!-- Google Fonts & Icons -->
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="navbar">
+  <a href="index.html" class="logo">
+  <img src="assets/logo.png" alt="Pro-Web Logo" class="logo-img" />
+</a>
+  <nav class="nav-links" id="navMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- Mobile Hamburger Button -->
+  <div class="hamburger" id="hamburgerBtn">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </div>
+
+  <!-- Search + Dark Mode Toggle -->
+  <div class="actions">
+    <input type="text" placeholder="Search..." class="search-bar" />
+    <button id="darkModeToggle" class="material-icons">dark_mode</button>
+  </div>
+</header>
+
+
+  <section class="about-section">
+    <div class="about-container">
+      <h1 data-aos="fade-up">Who We Are</h1>
+      <p data-aos="fade-up" data-aos-delay="100">
+        Pro-Web is a modern digital solution company delivering responsive, engaging, and secure websites. 
+        We help businesses establish their online presence with world-class design, speed, and scalability.
+      </p>
+
+      <div class="about-cards">
+        <div class="about-card" data-aos="fade-up" data-aos-delay="200">
+          <h3>Our Mission</h3>
+          <p>To empower businesses with cutting-edge, user-friendly web experiences that grow their brand and impact.</p>
+        </div>
+
+        <div class="about-card" data-aos="fade-up" data-aos-delay="300">
+          <h3>Our Vision</h3>
+          <p>To be the leading provider of elegant and efficient web solutions globally.</p>
+        </div>
+
+        <div class="about-card" data-aos="fade-up" data-aos-delay="400">
+          <h3>Our Team</h3>
+          <p>A passionate team of designers, developers, and strategists dedicated to building beautiful web experiences.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Pro-Web. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    const toggle = document.getElementById("darkModeToggle");
+
+  // On page load, check saved mode
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    toggle.textContent = "light_mode";
+  }
+
+  toggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    const isDark = document.body.classList.contains("dark-mode");
+
+    // Set icon and store preference
+    toggle.textContent = isDark ? "light_mode" : "dark_mode";
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  });
+  </script>
+  <script>
+  const hamburger = document.getElementById("hamburgerBtn");
+  const navMenu = document.getElementById("navMenu");
+
+  hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+  });
+</script>
+
+</body>
+</html>
